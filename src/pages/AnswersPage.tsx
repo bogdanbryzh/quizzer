@@ -5,8 +5,11 @@ import { AnswerWithTeamAndQuestion, getAnswers } from "../models/answers.model";
 function AnswersPage() {
   const [answers, setAnswers] = useState<AnswerWithTeamAndQuestion[]>([]);
 
-  useEffect(() => {
+  const fetchAnswers = () => {
     getAnswers().then(({ data }) => setAnswers(data ?? []));
+  };
+  useEffect(() => {
+    fetchAnswers();
   }, []);
 
   const columns = useMemo(
@@ -39,6 +42,9 @@ function AnswersPage() {
 
   return (
     <div>
+      <button className="btn btn-primary w-full" onClick={fetchAnswers}>
+        оновити
+      </button>
       <Table columns={columns} data={data} />
       {data.length === 0 && (
         <div className="hero">
