@@ -49,9 +49,7 @@ function AnswersPage() {
       {data.length === 0 && (
         <div className="hero">
           <div className="hero-content text-center">
-            <div className="max-w-md">
-              <h1 className="text-5xl font-bold">Нема відповідей ще</h1>
-            </div>
+            <h1 className="text-5xl font-bold">Нема відповідей ще</h1>
           </div>
         </div>
       )}
